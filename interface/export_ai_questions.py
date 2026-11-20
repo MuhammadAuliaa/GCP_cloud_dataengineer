@@ -48,12 +48,29 @@ def build_export():
 
     exported = []
     for item in questions:
-        question, choices = split_question(item.get("question", ""))
+        if item.get("options"):
+            question = item.get("question", "").strip()
+            choices = item["options"]
+        else:
+            question, choices = split_question(item.get("question", ""))
+        answer = item.get("answer", "").strip()
+        reason = item.get("reason", "").strip()
+        if not answer or not reason:
+            raise ValueError(
+                f"Question {item.get('question_no', '')!r} is missing an answer or reason."
+            )
+        answer_letters = [letter.strip() for letter in answer.split(",")]
+        if any(letter not in choices for letter in answer_letters):
+            raise ValueError(
+                f"Question {item.get('question_no', '')!r} has an answer that is not in its choices."
+            )
         exported.append(
             {
                 "question_no": item.get("question_no", ""),
                 "question": question,
                 "choices": choices,
+                "answer": answer,
+                "reason": reason,
             }
         )
     return exported

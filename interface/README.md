@@ -15,4 +15,4 @@ To regenerate the AI-ready export after updating the source JSON, run:
 python3 export_ai_questions.py
 ```
 
-The export is `data/ai-questions.json`. Each item contains only `question_no`, `question`, and a `choices` object; answer keys and discussions are excluded.
+The export is `data/ai-questions.json`. Each item contains `question_no`, `question`, a `choices` object, and the `answer` and `reason` fields from the source question bank. Community discussions are excluded.

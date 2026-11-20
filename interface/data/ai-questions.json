@@ -7,7 +7,9 @@
       "B": "Define a connection string using a database username and password to point to the internal (private) IP address of your Cloud SQL instance.",
       "C": "Define a connection string using Cloud SQL Auth proxy configured with a service account to point to the internal (private) IP address of your Cloud SQL instance.",
       "D": "Define a connection string using Cloud SQL Auth proxy configured with a service account to point to the external (public) IP address of your Cloud SQL instance."
-    }
+    },
+    "answer": "C",
+    "reason": "Auth Proxy memakai identitas service account dan mengamankan koneksi; private IP tetap dapat dijangkau melalui konektivitas jaringan perusahaan tanpa mengubah konfigurasi database."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 2 discussion",
@@ -18,7 +20,9 @@
       "C": "Configure single zone availability for automated backups.",
       "D": "Enable point-in-time recovery.",
       "E": "Schedule automated backups."
-    }
+    },
+    "answer": "D, E",
+    "reason": "Backup terjadwal menyediakan salinan pemulihan, sedangkan PITR memakai log transaksi untuk mengembalikan database ke waktu tertentu."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 3 discussion",
@@ -28,7 +32,9 @@
       "B": "Migrate applications and Oracle databases to Compute Engine.",
       "C": "Migrate applications to Cloud SQL.",
       "D": "Migrate applications and Oracle databases to Google Kubernetes Engine (GKE)."
-    }
+    },
+    "answer": "A",
+    "reason": "Google Cloud VMware Engine mempertahankan lingkungan VMware dan Oracle sedekat mungkin dengan arsitektur saat ini, sehingga perubahan aplikasi minimal."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 4 discussion",
@@ -38,7 +44,9 @@
       "B": "Change the Cloud Spanner configuration from multi-region to single region.",
       "C": "Use SQL statements to analyze SPANNER_SYS.READ_STATS* tables.",
       "D": "Use SQL statements to analyze SPANNER_SYS.QUERY_STATS* tables."
-    }
+    },
+    "answer": "C",
+    "reason": "Tabel SPANNER_SYS.READ_STATS berisi statistik operasi baca yang relevan untuk menelusuri kenaikan latensi baca."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 5 discussion",
@@ -48,7 +56,9 @@
       "B": "Use Database Migration Service for one-time migrations, and use third-party or partner tools for change data capture (CDC) style migrations.",
       "C": "Use data replication tools and CDC tools to enable migration.",
       "D": "Use a combination of Database Migration Service and partner tools to support the data migration strategy."
-    }
+    },
+    "answer": "A",
+    "reason": "Database Migration Service mendukung migrasi PostgreSQL ke Cloud SQL dan menyediakan replikasi serta pemantauan selama proses cutover."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 6 discussion",
@@ -58,7 +68,9 @@
       "B": "Set up bring your own IP (BYOIP) in your VPC.",
       "C": "Set up a Cloud NAT gateway on the Compute Engine VM.",
       "D": "Set up Cloud NAT service."
-    }
+    },
+    "answer": "C",
+    "reason": "Bare Metal Solution memerlukan VM Compute Engine sebagai gateway NAT; Cloud NAT saja tidak menyediakan akses internet transitif untuk server BMS."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 7 discussion",
@@ -68,7 +80,9 @@
       "B": "Use Cloud Monitoring to monitor CPU, memory, and storage utilization metrics.",
       "C": "Use Error Reporting to count, analyze, and aggregate the data.",
       "D": "Use Cloud Debugger to inspect the state of an application."
-    }
+    },
+    "answer": "B",
+    "reason": "Cloud Monitoring menampilkan metrik CPU, memori, dan storage untuk menghubungkan degradasi performa dengan pemakaian resource."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 8 discussion",
@@ -78,7 +92,9 @@
       "B": "Deploy Cloud Spanner using a multi-region instance, and place your compute resources close to the default leader region.",
       "C": "Build an in-memory cache in Memorystore, and deploy to the specific geographic regions where your application resides.",
       "D": "Deploy a Bigtable instance with a cluster in one region and a replica cluster in another geographic region."
-    }
+    },
+    "answer": "B",
+    "reason": "Spanner multi-region menyediakan skalabilitas dan ketersediaan global; menempatkan komputasi dekat leader mengurangi latensi transaksi tulis."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 9 discussion",
@@ -88,7 +104,9 @@
       "B": "Create your database with one primary node and one read replica in the region.",
       "C": "Enable maintenance notifications for users, and reschedule maintenance activities to a specific time after notifications have been sent.",
       "D": "Configure your Cloud SQL instance with high availability enabled."
-    }
+    },
+    "answer": "A",
+    "reason": "Maintenance window di luar jam aktif mengurangi dampak pembaruan, sementara urutan maintenance dapat menguji instance nonproduksi lebih dahulu."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 10 discussion",
@@ -98,7 +116,9 @@
       "B": "Stop all running queries, and re-create the replicas.",
       "C": "Edit the primary instance to upgrade to a larger disk, and increase vCPU count.",
       "D": "Edit the primary instance to add additional memory."
-    }
+    },
+    "answer": "A",
+    "reason": "Query yang lambat dapat menahan penerapan perubahan; mengoptimalkannya dan mengatur parallel replication membantu mengurangi replication lag."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 11 discussion",
@@ -108,7 +128,9 @@
       "B": "roles/spanner.databaseAdmin for Person A roles/spanner.databaseReader for Person B roles/spanner.backupAdmin for Application C",
       "C": "roles/spanner.databaseAdmin for Person A roles/spanner.databaseUser for Person B roles/spanner databaseReader for Application C",
       "D": "roles/spanner.databaseAdmin for Person A roles/spanner.databaseUser for Person B roles/spanner.backupWriter for Application C"
-    }
+    },
+    "answer": "A",
+    "reason": "Peran databaseAdmin, databaseReader, dan backupWriter memisahkan tugas sesuai prinsip least privilege."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 12 discussion",
@@ -118,7 +140,9 @@
       "B": "Use interleaving to co-locate parent and child rows.",
       "C": "Use the Cloud Spanner query optimizer to determine the most efficient way to execute the SQL query.",
       "D": "Use granular instance sizing in Cloud Spanner and Autoscaler."
-    }
+    },
+    "answer": "D",
+    "reason": "Autoscaler dan granular instance sizing menyesuaikan kapasitas Spanner dengan pola beban tanpa mempertahankan kapasitas berlebih."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 13 discussion",
@@ -128,7 +152,9 @@
       "B": "Maintain a target of 23% CPU utilization by locating: cluster-a in zone us-central1-a cluster-b in zone us-central1-b cluster-c in zone us-east1-a",
       "C": "Maintain a target of 35% CPU utilization by locating: cluster-a in zone us-central1-a cluster-b in zone australia-southeast1-a cluster-c in zone europe-west1-d cluster-d in zone asia-east1-b",
       "D": "Maintain a target of 35% CPU utilization by locating: cluster-a in zone us-central1-a cluster-b in zone us-central2-a cluster-c in zone asia-northeast1-b cluster-d in zone asia-east1-b"
-    }
+    },
+    "answer": "D",
+    "reason": "Menyebarkan cluster ke beberapa zona dan region serta menjaga sasaran CPU memberi kapasitas dan ketahanan saat ekspansi ke APAC."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 14 discussion",
@@ -138,7 +164,9 @@
       "B": "Deploy a Cloud SQL environment with read replicas for improved performance. Use Datastream to export data to Cloud Storage and analyze with Dataproc and the Cloud Storage connector.",
       "C": "Use Memorystore to handle your low-latency requirements and for real-time analytics.",
       "D": "Stream your data into BigQuery and use Dataproc and the BigQuery Storage API to analyze large volumes of data."
-    }
+    },
+    "answer": "A",
+    "reason": "Bigtable menangani throughput klikstream dengan latensi rendah, sementara Dataproc dan library HBase mendukung analisis data."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 15 discussion",
@@ -149,7 +177,9 @@
       "C": "Promote low-cardinality attributes in multi-attribute primary keys.",
       "D": "Promote high-cardinality attributes in multi-attribute primary keys.",
       "E": "Use bit-reverse sequential value as the primary key."
-    }
+    },
+    "answer": "D, E",
+    "reason": "Primary key bit-reversed dan atribut ber-cardinality tinggi menyebarkan penulisan ke rentang key, sehingga mengurangi hotspot."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 16 discussion",
@@ -159,7 +189,9 @@
       "B": "Use Query Insights for Cloud SQL.",
       "C": "Use the Cloud Monitoring dashboard with available metrics from Cloud SQL.",
       "D": "Use Cloud SQL instance monitoring in the Google Cloud Console."
-    }
+    },
+    "answer": "B",
+    "reason": "Query Insights menampilkan kueri yang mahal atau berjalan lama sehingga sumber beban dari aplikasi dapat diidentifikasi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 17 discussion",
@@ -169,7 +201,9 @@
       "B": "Use Cloud SQL, and create different tables for user profile data and user preferences from your recommendations model. Use SQL to join the user profile data and preferences",
       "C": "Use Firestore in Native mode, and store user profile data as a document. Update the user profile with preferences specific to that user and use the user identifier to query.",
       "D": "Use Firestore in Datastore mode, and store user profile data as a document. Update the user profile with preferences specific to that user and use the user identifier to query."
-    }
+    },
+    "answer": "C",
+    "reason": "Firestore menyimpan profil sebagai dokumen dengan skema fleksibel, sehingga preferensi dapat ditambah atau dihapus tanpa migrasi skema relasional."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 18 discussion",
@@ -180,7 +214,9 @@
       "C": "Disable replication on the read replica, and set the flag for parallel replication on the read replica. Re-enable replication and optimize performance by setting flags on the primary instance.",
       "D": "Disable replication on the primary instance, and set the flag for parallel replication on the primary instance. Re-enable replication and optimize performance by setting flags on the read replica.",
       "E": "Move your analytics workloads to BigQuery, and set up a streaming pipeline to move data and update BigQuery."
-    }
+    },
+    "answer": "B, C",
+    "reason": "Read replica mengisolasi analitik dari primary; parallel replication dan pengaturan replikasi mengurangi lag pada replika."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 19 discussion",
@@ -190,7 +226,9 @@
       "B": "Create a Cloud SQL for PostgreSQL instance on Google Cloud for the data that does not need to adhere to data residency requirements. Keep the data that must adhere to data residency requirements on-premises. Make application changes to support both databases.",
       "C": "Allow application access to data only if the users are in the same region as the Google Cloud region for the Cloud SQL for PostgreSQL database.",
       "D": "Use features like customer-managed encryption keys (CMEK), VPC Service Controls, and Identity and Access Management (IAM) policies."
-    }
+    },
+    "answer": "D",
+    "reason": "CMEK, VPC Service Controls, dan IAM memberi kontrol atas kunci, perimeter data, serta akses yang diperlukan untuk kebutuhan kepatuhan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 20 discussion",
@@ -200,7 +238,9 @@
       "B": "Use the mysqldump utility to take a backup of the existing on-premises database, and then import it into Cloud SQL.",
       "C": "Create a Compute Engine VM, install MySQL on the VM, and then import the dump file.",
       "D": "Create an external replica, and use Cloud SQL to synchronize the data to the replica."
-    }
+    },
+    "answer": "D",
+    "reason": "External replica menjaga replikasi dari MySQL on-premises ke Cloud SQL dan memungkinkan cutover dengan gangguan lebih kecil."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 21 discussion",
@@ -210,7 +250,9 @@
       "B": "Use Cloud Spanner with Data Studio.",
       "C": "Use MongoD8 Atlas with Charts.",
       "D": "Use Bigtable with Looker."
-    }
+    },
+    "answer": "C",
+    "reason": "MongoDB Atlas mendukung strategi multi-cloud, sedangkan Charts menyediakan visualisasi untuk mengambil keputusan dari data IoT."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 22 discussion",
@@ -220,7 +262,9 @@
       "B": "Increase the number of CPUs for your instance.",
       "C": "Increase the storage size for the instance.",
       "D": "Use many smaller Cloud SQL instances."
-    }
+    },
+    "answer": "D",
+    "reason": "Memecah database besar menjadi instance lebih kecil mengikuti batas layanan mikro dan memungkinkan setiap layanan diskalakan mandiri."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 23 discussion",
@@ -230,7 +274,9 @@
       "B": "Create two Datastream connection profiles, and use them to create a stream from one Cloud SQL instance to another.",
       "C": "Create a SQL dump file in Cloud Storage using a temporary instance, and then use that file to import into a new instance.",
       "D": "Create a CSV file by running the SQL statement SELECT...INTO OUTFILE, copy the file to a Cloud Storage bucket, and import it into a new instance."
-    }
+    },
+    "answer": "C",
+    "reason": "Ekspor ke Cloud Storage lalu impor ke instance tujuan adalah cara sederhana untuk migrasi satu kali antarregion."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 24 discussion",
@@ -240,7 +286,9 @@
       "B": "Use PgBouncer to set up database connection pooling between the Cloud SQL primary and read replica instances.",
       "C": "Use HTTP(S) Load Balancing for database connection pooling between the Cloud SQL primary and read replica instances.",
       "D": "Use the Cloud SQL Auth proxy for database connection pooling between the Cloud SQL primary and read replica instances."
-    }
+    },
+    "answer": "B",
+    "reason": "PgBouncer mengurangi beban koneksi dengan pooling; aplikasi dapat mengarahkan lalu lintas baca dan tulis ke instance yang sesuai."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 25 discussion",
@@ -250,7 +298,9 @@
       "B": "Reload the Cloud SQL for MySQL database using the LOAD DATA command to load data from CSV files that were used to initialize the instance.",
       "C": "Perform a point-in-time recovery of your Cloud SQL for MySQL database, selecting a date and time before the data was corrupted.",
       "D": "Fail over to the Cloud SQL for MySQL HA instance. Use that instance to recover the transactions that occurred before the corruption."
-    }
+    },
+    "answer": "C",
+    "reason": "PITR memulihkan Cloud SQL ke waktu sebelum kesalahan aplikasi merusak data, tanpa perlu mengembalikan seluruh server secara manual."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 26 discussion",
@@ -261,7 +311,9 @@
       "C": "Ensure that all PostgreSQL tables have a primary key.",
       "D": "Shut down the database before the Data Migration Service task is started.",
       "E": "Ensure that pglogical is installed on the source PostgreSQL database."
-    }
+    },
+    "answer": "C, E",
+    "reason": "DMS memerlukan primary key pada tabel dan pglogical pada sumber PostgreSQL untuk menjalankan replikasi berkelanjutan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 27 discussion",
@@ -271,7 +323,9 @@
       "B": "Use Data Migration Service.",
       "C": "Use Cloud SQL for MySQL external replica.",
       "D": "Use the mysqldump utility and binary logs."
-    }
+    },
+    "answer": "C",
+    "reason": "Cloud SQL external replica memungkinkan database MySQL eksternal mereplikasi ke layanan terkelola sambil mendukung skala baca."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 28 discussion",
@@ -282,7 +336,9 @@
       "C": "Use replication from an external server to migrate the databases to Cloud SQL.",
       "D": "Use an external read replica to migrate the databases to Cloud SQL.",
       "E": "Use a read replica to migrate the databases to Cloud SQL."
-    }
+    },
+    "answer": "A, C",
+    "reason": "DMS menyediakan migrasi terkelola, sedangkan replikasi dari server eksternal dapat melengkapi migrasi bagi database yang perlu tetap disinkronkan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 29 discussion",
@@ -292,7 +348,9 @@
       "B": "1. Create migration job using Database Migration Service. 2. Set the migration job type to Continuous, and allow the databases to complete the full dump phase and start sending data in change data capture (CDC) mode. 3. Wait for the replication delay to minimize, initiate a promotion of the new Cloud SQL instance, and wait for the migration job to complete. 4. Update your application connections to the new instance.",
       "C": "1. Create migration job using Database Migration Service. 2. Set the migration job type to One-time, and perform this migration during a maintenance window. 3. Stop all write workloads to the source database and initiate the dump. Wait for the dump to be loaded into the Cloud SQL destination database and the destination database to be promoted to the primary database. 4. Update your application connections to the new instance.",
       "D": "1. Use the mysqldump utility to manually initiate a backup of MySQL during the application maintenance window. 2. Move the files to Cloud Storage, and import each database into your Cloud SQL instance. 3. Continue to dump each database until all the databases are migrated. 4. Update your application connections to the new instance."
-    }
+    },
+    "answer": "B",
+    "reason": "Migrasi berkelanjutan DMS melakukan initial load dan menangkap perubahan sampai database tujuan siap untuk cutover."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 30 discussion",
@@ -302,7 +360,9 @@
       "B": "Compress the data using a different compression algorithm.",
       "C": "Manually or automatically increase the storage capacity.",
       "D": "Create another schema to load older data."
-    }
+    },
+    "answer": "C",
+    "reason": "Rekomendasi out-of-disk membantu menentukan kapan kapasitas perlu ditambah, baik secara manual maupun otomatis."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 31 discussion",
@@ -312,7 +372,9 @@
       "B": "Perform the gcloud sql operations list command.",
       "C": "Use Cloud Audit Logs to verify the status.",
       "D": "Use the Google Cloud Console."
-    }
+    },
+    "answer": "B",
+    "reason": "Daftar operasi Cloud SQL menampilkan status operasi backup yang sedang atau sudah berjalan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 32 discussion",
@@ -322,7 +384,9 @@
       "B": "Modify the database schema, and add additional indexes.",
       "C": "Shard data required by the application into multiple instances.",
       "D": "Decrease the number of processing units."
-    }
+    },
+    "answer": "A",
+    "reason": "Menambah processing units meningkatkan kapasitas komputasi Spanner dan membantu mengatasi penggunaan CPU tinggi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 33 discussion",
@@ -332,7 +396,9 @@
       "B": "Recommend splitting the Bigtable instance into two instances in order to load balance the concurrent reads.",
       "C": "Recommend hard disk drives (HDD).",
       "D": "Recommend mixed storage types."
-    }
+    },
+    "answer": "A",
+    "reason": "SSD memberi performa baca acak dan latensi yang lebih baik untuk workload Bigtable yang dominan membaca."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 34 discussion",
@@ -342,7 +408,9 @@
       "B": "1. Provision a Cloud SQL for MySQL instance in us-central1-a. 2. Create a multiple-zone instance in us-central1-b. 3. Create a read replica in us-east1-b.",
       "C": "1. Provision a Cloud SQL for MySQL instance in us-central1-a. 2. Create a multiple-zone instance in us-east-b. 3. Create a read replica in us-east1-c.",
       "D": "1. Provision a Cloud SQL for MySQL instance in us-central1-a. 2. Create a multiple-zone instance in us-east1-b. 3. Create a read replica in us-central1-b."
-    }
+    },
+    "answer": "B",
+    "reason": "HA regional menangani kegagalan zona di region utama, sedangkan read replica di us-east1 menyediakan jalur pemulihan regional."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 35 discussion",
@@ -352,7 +420,9 @@
       "B": "Use Cloud SQL with an external (public) IP address.",
       "C": "Use an in-app embedded database.",
       "D": "Use Cloud Spanner."
-    }
+    },
+    "answer": "A",
+    "reason": "Firestore adalah database serverless yang mendukung sinkronisasi dan cache offline pada aplikasi mobile."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 36 discussion",
@@ -363,7 +433,9 @@
       "C": "If the corruption is significant, use import and export.",
       "D": "If the corruption is insignificant, use backup and restore, and specify a recovery timestamp.",
       "E": "If the corruption is insignificant, perform a stale read and specify a recovery timestamp. Write the results back."
-    }
+    },
+    "answer": "A, E",
+    "reason": "Untuk kerusakan besar, pulihkan backup pada waktu tertentu; untuk perubahan kecil, stale read memungkinkan pemulihan data terpilih."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 37 discussion",
@@ -373,7 +445,9 @@
       "B": "Increase the amount of memory allocated to your instance.",
       "C": "Ensure that the service account has the Storage Admin role.",
       "D": "Increase the number of CPUs for the instance to ensure that it can handle the additional import operation."
-    }
+    },
+    "answer": "A",
+    "reason": "Menutup koneksi idle membebaskan batas koneksi sebelum impor besar dimulai."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 38 discussion",
@@ -383,7 +457,9 @@
       "B": "Set up Serverless VPC Access.",
       "C": "Set up Private Service Connect.",
       "D": "Set up Traffic Director."
-    }
+    },
+    "answer": "A",
+    "reason": "Shared VPC memungkinkan proyek aplikasi dan database berbagi jaringan terkontrol, sementara firewall membatasi komunikasi antarlayanan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 39 discussion",
@@ -393,7 +469,9 @@
       "B": "Use Cloud Functions to run the export in text format.",
       "C": "Use Dataflow to run the export in Avro format.",
       "D": "Use Dataflow to run the export in text format."
-    }
+    },
+    "answer": "C",
+    "reason": "Ekspor Spanner melalui Dataflow dalam format Avro menyediakan salinan yang dapat dimuat ke lingkungan pengujian."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 40 discussion",
@@ -403,7 +481,9 @@
       "B": "Configure Bigtable, and modify your application to offload queries.",
       "C": "Configure Cloud SQL for PostgreSQL read replicas to offload queries.",
       "D": "Configure Memorystore, and modify your application to offload queries."
-    }
+    },
+    "answer": "D",
+    "reason": "Memorystore mengurangi latensi kueri yang sering diakses dengan menyajikan data dari cache dalam memori."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 41 discussion",
@@ -413,7 +493,9 @@
       "B": "Create a SQL Server 2019 Standard on High Memory machine type with at least 16 vCPUs, 104 GB of RAM, and 200 GB of SSD.",
       "C": "Create a SQL Server 2019 Standard on High Memory machine type with 16 vCPUs, 104 GB of RAM, and 4 TB of SSD.",
       "D": "Create a SQL Server 2019 Enterprise on High Memory machine type with 16 vCPUs, 104 GB of RAM, and 500 GB of SSD."
-    }
+    },
+    "answer": "C",
+    "reason": "Konfigurasi SQL Server dengan SSD 4 TB menyediakan kapasitas dan IOPS yang mendekati kebutuhan puncak baca."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 42 discussion",
@@ -423,7 +505,9 @@
       "B": "Take one manual backup per day, and turn off transaction log retention.",
       "C": "Turn on automated backup, and turn off transaction log retention.",
       "D": "Turn on automated backup, and turn on transaction log retention."
-    }
+    },
+    "answer": "C",
+    "reason": "Jika RPO beberapa hari dapat diterima, backup otomatis cukup; retensi log transaksi untuk PITR dapat dimatikan untuk menekan biaya."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 43 discussion",
@@ -433,7 +517,9 @@
       "B": "Migrate the Cloud SQL instance to Cloud Spanner to avoid any future disruptions due to maintenance.",
       "C": "Contact Support to understand why your Cloud SQL instance had a downtime of more than 5 minutes.",
       "D": "Use Cloud Scheduler to schedule a maintenance window of no longer than 5 minutes."
-    }
+    },
+    "answer": "A",
+    "reason": "Maintenance window di luar jam bisnis menjadwalkan pembaruan pada periode dengan dampak pengguna paling kecil."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 44 discussion",
@@ -443,7 +529,9 @@
       "B": "Deploy 2 Cloud SQL instances in the us-central1 region, and create read replicas in us-east1 and us-west1.",
       "C": "Deploy 4 Cloud SQL instances in the us-central1 region with HA enabled, and create read replicas in us-central1, us-east1, and us-west1.",
       "D": "Deploy 4 Cloud SQL instances in the us-central1 region, and create read replicas in us-central1, us-east1 and us-west1."
-    }
+    },
+    "answer": "C",
+    "reason": "Membagi database ke beberapa instance HA dan menempatkan read replica dekat aplikasi mengurangi beban serta latensi lintas region."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 45 discussion",
@@ -453,7 +541,9 @@
       "B": "Use Cloud Scheduler to trigger a Cloud Function through Pub/Sub to call the cloudsql.instances.export API.",
       "C": "Use Cloud Composer to orchestrate an export by calling the cloudsql.instances.export API.",
       "D": "Use Cloud Composer to execute a select * from table(s) query and export results."
-    }
+    },
+    "answer": "B",
+    "reason": "Cloud Scheduler dan Cloud Functions mengotomatiskan ekspor harian melalui API tanpa server yang harus dikelola."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 46 discussion",
@@ -463,7 +553,9 @@
       "B": "Use Firestore, and rely on automatic serverless scaling.",
       "C": "Use Memorystore for Memcached, and add nodes as necessary to achieve the required throughput.",
       "D": "Use Bigtable, and add nodes as necessary to achieve the required throughput."
-    }
+    },
+    "answer": "D",
+    "reason": "Bigtable dirancang untuk throughput sangat tinggi dan dapat diskalakan dengan menambah node sesuai kebutuhan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 47 discussion",
@@ -473,7 +565,9 @@
       "B": "Use Cloud Spanner with default encryption.",
       "C": "Use Cloud SQL with a customer-managed encryption key (CMEK).",
       "D": "Use Bigtable with default encryption."
-    }
+    },
+    "answer": "A",
+    "reason": "Spanner multi-region memenuhi ketersediaan lintas region, sementara CMEK memberi kendali atas kunci enkripsi AES-256."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 48 discussion",
@@ -483,7 +577,9 @@
       "B": "Use the Google Cloud Console or gcloud CLI to manually create a new failover replica from backup.",
       "C": "Verify that the new replica is created automatically.",
       "D": "Start the original primary instance and resume replication."
-    }
+    },
+    "answer": "C",
+    "reason": "Cloud SQL mengelola pemulihan replika; verifikasi bahwa replika kembali dibuat atau pulih otomatis setelah gangguan zona."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 49 discussion",
@@ -493,7 +589,9 @@
       "B": "Deploy Cloud SQL for PostgreSQL in a regional configuration with HA enabled. Take periodic backups, and use this backup to restore to a new Cloud SQL for PostgreSQL instance in another region during a disaster recovery event.",
       "C": "Deploy Cloud SQL for PostgreSQL in a regional configuration with HA enabled. Create a cross-region read replica, and promote the read replica as the primary node for disaster recovery.",
       "D": "Migrate the PostgreSQL database to multi-regional Cloud Spanner so that a single region outage will not affect your application. Update the schema to support Cloud Spanner data types, and refactor the application."
-    }
+    },
+    "answer": "C",
+    "reason": "HA regional Cloud SQL menangani kegagalan zona, sedangkan cross-region read replica dapat dipromosikan untuk pemulihan bencana."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 50 discussion",
@@ -503,7 +601,9 @@
       "B": "Create a read replica, and then use the mysqldump utility to export each table.",
       "C": "Clone the Cloud SQL instance, and then use the mysqldump utlity to export the data.",
       "D": "Use the mysqldump utility on the primary database instance to export the backup."
-    }
+    },
+    "answer": "A",
+    "reason": "Serverless export memindahkan data ke Cloud Storage tanpa menjalankan proses ekspor berat pada instance produksi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 51 discussion",
@@ -513,7 +613,9 @@
       "B": "For each application code, set up a dedicated user account.",
       "C": "For the application server, set up a service account.",
       "D": "For the application server, set up a common shared user account."
-    }
+    },
+    "answer": "C",
+    "reason": "Service account memberi Cloud SQL Auth Proxy identitas IAM yang diperlukan agar aplikasi dapat membuat koneksi terautentikasi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 52 discussion",
@@ -523,7 +625,9 @@
       "B": "Migrate to Cloud SQL for PostgreSQL.",
       "C": "Migrate to Compute Engine.",
       "D": "Migrate to Google Kubernetes Engine (GKE)."
-    }
+    },
+    "answer": "C",
+    "reason": "Compute Engine diperlukan untuk menjalankan SSAS, SSRS, dan SSIS yang tidak disediakan oleh Cloud SQL for SQL Server."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 53 discussion",
@@ -533,7 +637,9 @@
       "B": "roles/cloudsql.editor and roles/spanner.admin",
       "C": "roles/cloudsql.client and roles/spanner.databaseReader",
       "D": "roles/cloudsql.instanceUser and roles/spanner.databaseUser"
-    }
+    },
+    "answer": "D",
+    "reason": "Cloud SQL instanceUser memberi akses koneksi, dan Spanner databaseUser memberi akses data yang diperlukan untuk membaca serta menulis."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 54 discussion",
@@ -543,7 +649,9 @@
       "B": "Use Cloud Spanner in a multi-region configuration.",
       "C": "Use Firestore in Datastore mode.",
       "D": "Use a Bigtable instance with clusters in multiple regions."
-    }
+    },
+    "answer": "B",
+    "reason": "Spanner mendukung transaksi kuat, data relasional dan JSON, serta skalabilitas multi-region untuk aplikasi pemesanan global."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 55 discussion",
@@ -553,7 +661,9 @@
       "B": "1. Create your instance with a specified external (public) IP address. 2. Choose the VPC and create firewall rules to allow only connections from Cloud Run into your instance. 3. Connect to the instance using a connection pool to best manage connections to the instance.",
       "C": "1. Create your instance with a specified internal (private) IP address. 2. Choose the VPC with private service connection configured. 3. Configure the Serverless VPC Access connector in the same VPC network as your Cloud SQL instance. 4. Use Cloud SQL Auth proxy to connect to the instance.",
       "D": "1. Create your instance with a specified internal (private) IP address. 2. Choose the VPC with private service connection configured. 3. Configure the Serverless VPC Access connector in the same VPC network as your Cloud SQL instance. 4. Connect to the instance using a connection pool to best manage connections to the instance."
-    }
+    },
+    "answer": "C",
+    "reason": "Private IP melalui Private Services Access menghindari endpoint publik; konektivitas Cloud Run ke VPC memungkinkan akses privat."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 56 discussion",
@@ -563,7 +673,9 @@
       "B": "Check whether your service account has cloudsql.instances.connect permission.",
       "C": "Enable the Cloud SQL Admin API.",
       "D": "Ensure that you are using an external (public) IP address interface."
-    }
+    },
+    "answer": "C",
+    "reason": "Error 403 Access Not Configured menunjukkan Cloud SQL Admin API belum aktif untuk proyek tersebut."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 57 discussion",
@@ -573,7 +685,9 @@
       "B": "Use sharded Cloud SQL instances with one or more stores per database instance.",
       "C": "Use a Biglable cluster with autoscaling.",
       "D": "Use Cloud Spanner with a custom autoscaling solution."
-    }
+    },
+    "answer": "D",
+    "reason": "Spanner menyediakan penyimpanan relasional yang dapat diskalakan untuk inventori besar dan dapat ditambah kapasitasnya seiring rollout toko."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 58 discussion",
@@ -583,7 +697,9 @@
       "B": "Use backup and restore to roll out changes to higher environments.",
       "C": "Use Liquibase to roll out changes to higher environments.",
       "D": "Manually capture detailed DBA audit logs when changes are rolled out to higher environments."
-    }
+    },
+    "answer": "C",
+    "reason": "Liquibase mencatat perubahan skema sebagai changelog yang dapat ditinjau auditor dan dipromosikan secara konsisten."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 59 discussion",
@@ -593,7 +709,9 @@
       "B": "Update a MySQL database flag to increase the number of vCPUs.",
       "C": "Issue a gcloud compute instances update command to increase the number of vCPUs.",
       "D": "Back up the database, create an instance with additional vCPUs, and restore the database."
-    }
+    },
+    "answer": "A",
+    "reason": "Perintah patch mengubah ukuran mesin Cloud SQL yang berjalan agar memiliki lebih banyak vCPU."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 60 discussion",
@@ -603,7 +721,9 @@
       "B": "Configure the primary and standby instances in zone A and the read replica in zone B, all in the same region.",
       "C": "Configure the primary instance in one region, the standby instance in a second region, and the read replica in a third region.",
       "D": "Configure the primary, standby, and read replica instances in zone A, all in the same region."
-    }
+    },
+    "answer": "A",
+    "reason": "Primary dan standby HA ditempatkan di zona berbeda dalam satu region, dan read replica menggunakan zona ketiga."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 61 discussion",
@@ -613,7 +733,9 @@
       "B": "Create a clone database from a read replica database, and restore the clone into a different zone.",
       "C": "Use the Cloud SQL point-in-time recovery (PITR) feature. Restore the copy from two hours ago to a new database instance.",
       "D": "Use the Cloud SQL database import feature. Import last week's dump file from Cloud Storage."
-    }
+    },
+    "answer": "C",
+    "reason": "PITR membuat instance baru pada waktu pemulihan sehingga salinan sebelum kerusakan tersedia tanpa menimpa instance sumber."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 62 discussion",
@@ -623,7 +745,9 @@
       "B": "Create the database with customer-managed encryption keys.",
       "C": "Create the database persistent disk with Google-managed encryption keys.",
       "D": "Create the database persistent disk with customer-managed encryption keys."
-    }
+    },
+    "answer": "B",
+    "reason": "CMEK memberi organisasi kontrol atas pembuatan, lokasi, rotasi, dan pencabutan kunci enkripsi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 63 discussion",
@@ -633,7 +757,9 @@
       "B": "Edit the instance to change the storage type from HDD to SSD.",
       "C": "Create a high availability (HA) failover instance with SSDs, and perform a failover to the new instance.",
       "D": "Create a read replica of the instance with SSDs, and perform a failover to the new instance"
-    }
+    },
+    "answer": "A",
+    "reason": "Tipe disk instance Cloud SQL yang sudah ada tidak dapat diubah begitu saja; ekspor dan impor ke instance SSD menyediakan jalur migrasi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 64 discussion",
@@ -643,7 +769,9 @@
       "B": "Create a new service account, and grant it the Cloud Spanner Database Admin role.",
       "C": "Create a new service account, and grant it the Cloud Spanner Database Reader role.",
       "D": "Create a new service account, and grant it the spanner.databases.select permission."
-    }
+    },
+    "answer": "C",
+    "reason": "Database Reader memberikan akses baca saja yang sesuai untuk aplikasi dashboard dan memenuhi least privilege."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 65 discussion",
@@ -653,7 +781,9 @@
       "B": "Watch the Cloud SQL instance monitor for CPU utilization metrics.",
       "C": "Watch the Cloud SQL recommenders for overprovisioned instances.",
       "D": "Watch Cloud Trace for application requests that are failing."
-    }
+    },
+    "answer": "D",
+    "reason": "Cloud Trace menautkan panggilan microservice dengan kueri database melalui Sqlcommenter sehingga kegagalan dapat ditelusuri end-to-end."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 66 discussion",
@@ -663,7 +793,9 @@
       "B": "Use Memorystore for Redis with multi-zones within a region.",
       "C": "Use Cloud SQL for PostgreSQL with cross-region replicas.",
       "D": "Use Cloud Spanner with multi-region configuration."
-    }
+    },
+    "answer": "C",
+    "reason": "Cross-region read replicas menyajikan data dekat pengguna global, sementara pembaruan batch tetap dilakukan terpusat."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 67 discussion",
@@ -673,7 +805,9 @@
       "B": "Use Cloud SQL maintenance settings to prevent any maintenance during the month of December.",
       "C": "Create MySQL read replicas in different zones so that, if any downtime occurs, the read replicas will act as the primary instance during the month of December.",
       "D": "Create a MySQL regional instance so that, if any downtime occurs, the standby instance will act as the primary instance during the month of December."
-    }
+    },
+    "answer": "B",
+    "reason": "Deny maintenance period mencegah pembaruan terjadwal selama Desember tanpa biaya instance tambahan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 68 discussion",
@@ -683,7 +817,9 @@
       "B": "Set up all read replicas in the same region as the primary instance with synchronous replication.",
       "C": "Set up read replicas in different zones of the same region as the primary instance with synchronous replication, and set up read replicas in different regions with asynchronous replication.",
       "D": "Set up read replicas in different zones of the same region as the primary instance with asynchronous replication, and set up read replicas in different regions with synchronous replication."
-    }
+    },
+    "answer": "C",
+    "reason": "HA regional memakai replikasi sinkron untuk RPO rendah di dalam region, dan replika lintas region menambah opsi pemulihan bencana."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 69 discussion",
@@ -693,7 +829,9 @@
       "B": "Apply an instance data management pattern.",
       "C": "Apply a table data management pattern.",
       "D": "Apply a database data management pattern."
-    }
+    },
+    "answer": "D",
+    "reason": "Pola isolasi per database memisahkan data Country A untuk residency tanpa memerlukan instance khusus bagi setiap tenant."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 70 discussion",
@@ -703,7 +841,9 @@
       "B": "Use direct scaling to implement the Autoscaler-based architecture.",
       "C": "Upgrade the Cloud Spanner instance on a periodic basis during the scheduled maintenance window.",
       "D": "Set up alerts that are triggered when Cloud Spanner utilization metrics breach the threshold, and then schedule an upgrade during the scheduled maintenance window."
-    }
+    },
+    "answer": "A",
+    "reason": "Autoscaler dengan skala linear mengikuti pertumbuhan beban yang stabil dan menyediakan ruang untuk lonjakan musiman."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 71 discussion",
@@ -713,7 +853,9 @@
       "B": "Create a read replica of the database, enable the cloudsql.iam_authentication flag on the replica, and grant read access to required tables to the analytics team.",
       "C": "Enable the cloudsql.iam_authentication flag on the primary database instance, and grant read access to required tables to the analytics team.",
       "D": "Provide the database IP address, username, and password of the primary database instance to the analytics, team, and grant read access to required tables to the team."
-    }
+    },
+    "answer": "B",
+    "reason": "Read replica memindahkan laporan dari primary; IAM database authentication dan grant tabel membatasi akses analis."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 72 discussion",
@@ -723,7 +865,9 @@
       "B": "Check the Cloud Monitoring table/bytes_used metric from Bigtable.",
       "C": "Use Key Visualizer for Bigtable.",
       "D": "Add more nodes to the Bigtable cluster."
-    }
+    },
+    "answer": "C",
+    "reason": "Key Visualizer memetakan aktivitas key Bigtable untuk menemukan pola akses atau hot key yang memicu masalah operasional."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 73 discussion",
@@ -733,7 +877,9 @@
       "B": "Use Cloud Spanner.",
       "C": "Use Cloud SQL.",
       "D": "Use Bigtable."
-    }
+    },
+    "answer": "B",
+    "reason": "Spanner menyediakan transaksi ACID dan ketersediaan tinggi untuk aplikasi global."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 74 discussion",
@@ -744,7 +890,9 @@
       "C": "Identity all tables that do not have at least one foreign key.",
       "D": "Identify whether the source database is encrypted using pgcrypto extension.",
       "E": "Identify whether the source database uses customer-managed encryption keys (CMEK)."
-    }
+    },
+    "answer": "B, E",
+    "reason": "Primary key diperlukan agar migrasi PostgreSQL dapat mereplikasi baris dengan benar; dukungan CMEK sumber juga perlu diperiksa sebagai batasan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 75 discussion",
@@ -754,7 +902,9 @@
       "B": "Deploy a US multi-region Firestore location.",
       "C": "Build a Firestore bundle, and deploy bundles to Cloud CDN.",
       "D": "Create a Firestore index on the news story date."
-    }
+    },
+    "answer": "C",
+    "reason": "Firestore bundle memungkinkan konten populer didistribusikan melalui CDN sehingga latensi dan beban baca berkurang."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 76 discussion",
@@ -764,7 +914,9 @@
       "B": "Use Migrate for Compute Engine to complete the migration.",
       "C": "Use Datastream to complete the migration.",
       "D": "Use Database Migration Service to complete the migration."
-    }
+    },
+    "answer": "D",
+    "reason": "DMS melakukan initial load dan CDC dari VM PostgreSQL ke Cloud SQL untuk mengurangi waktu henti cutover."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 77 discussion",
@@ -774,7 +926,9 @@
       "B": "Change the storage tier of the automated backups from solid-state drive (SSD) to hard disk drive (HDD).",
       "C": "Select a different region to store your backups.",
       "D": "Reduce the number of automated backups that are retained to two (2)."
-    }
+    },
+    "answer": "D",
+    "reason": "Mengurangi jumlah backup yang dipertahankan menurunkan storage backup untuk database yang tidak kritis."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 78 discussion",
@@ -784,7 +938,9 @@
       "B": "Write a utility to scan database query logs.",
       "C": "Write a utility to scan application logs.",
       "D": "Use query tags to add application-centric database monitoring."
-    }
+    },
+    "answer": "D",
+    "reason": "Query tags mengaitkan kueri dengan aplikasi asalnya agar sumber query lambat mudah dikenali."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 79 discussion",
@@ -794,7 +950,9 @@
       "B": "Use Cloud Spanner in a multi-region configuration.",
       "C": "Use Cloud SQL with cross-region replicas.",
       "D": "Use highly available Cloud SQL with multiple zones."
-    }
+    },
+    "answer": "B",
+    "reason": "Spanner multi-region memberi ketersediaan lintas region dan konsistensi transaksi saat aplikasi berkembang secara global."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 80 discussion",
@@ -804,7 +962,9 @@
       "B": "Migrate the Oracle databases to Compute Engine.",
       "C": "Migrate the Oracle databases to Cloud SQL.",
       "D": "Migrate the Oracle databases to Bare Metal Solution for Oracle."
-    }
+    },
+    "answer": "D",
+    "reason": "Bare Metal Solution mendukung Oracle RAC dan memberi kompatibilitas tinggi untuk migrasi tanpa perubahan aplikasi besar."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 81 discussion",
@@ -814,7 +974,9 @@
       "B": "Migrate the Oracle, MySQL, and Microsoft SQL Server databases to Cloud SQL, and migrate the PostgreSQL databases to Compute Engine.",
       "C": "Migrate the MySQL, Microsoft SQL Server, and PostgreSQL databases to Compute Engine, and migrate the Oracle databases to Bare Metal Solution for Oracle.",
       "D": "Migrate the MySQL, Microsoft SQL Server, and PostgreSQL databases to Cloud SQL, and migrate the Oracle databases to Bare Metal Solution for Oracle."
-    }
+    },
+    "answer": "D",
+    "reason": "Cloud SQL mengelola MySQL, SQL Server, dan PostgreSQL; Bare Metal Solution menjadi pilihan untuk Oracle yang memerlukan kompatibilitas."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 82 discussion",
@@ -824,7 +986,9 @@
       "B": "Use gcloud sql instances failover <ReplicaInstanceName>.",
       "C": "Use gcloud sql instances promote-replica <PrimaryInstanceName>.",
       "D": "Use gcloud sql instances promote-replica <ReplicaInstanceName>."
-    }
+    },
+    "answer": "A",
+    "reason": "Perintah gcloud sql instances failover memicu failover terencana untuk menguji konfigurasi HA."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 83 discussion",
@@ -834,7 +998,9 @@
       "B": "Create a Cloud Composer instance, and create a directed acyclic graph (DAG).",
       "C": "Create a Cloud Function, and call the Cloud Function using Cloud Scheduler.",
       "D": "Create a Cloud Function, and call the Cloud Function from a Cloud Tasks queue."
-    }
+    },
+    "answer": "C",
+    "reason": "Cloud Scheduler dapat menjalankan Cloud Function berkala untuk membuat laporan tanpa server yang selalu aktif."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 84 discussion",
@@ -844,7 +1010,9 @@
       "B": "Use Cloud SQL federated queries.",
       "C": "Use Database Migration Service to replicate tables into BigQuery.",
       "D": "Use Datastream to capture changes, and use Dataflow to write those changes to BigQuery."
-    }
+    },
+    "answer": "D",
+    "reason": "Datastream menangkap perubahan MySQL secara CDC dan Dataflow memprosesnya ke BigQuery untuk analitik."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 85 discussion",
@@ -854,7 +1022,9 @@
       "B": "Use Memorystore for Memcached.",
       "C": "Use Pub/Sub to synchronize the changes from the application to Cloud Spanner.",
       "D": "Use Table.read with the exactStaleness option to perform a read of rows in Cloud Spanner."
-    }
+    },
+    "answer": "A",
+    "reason": "Firestore persistence menyimpan cache lokal sehingga aplikasi tetap dapat membaca data saat jaringan terputus."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 86 discussion",
@@ -864,7 +1034,9 @@
       "B": "Define a maintenance window on Sundays between 12 AM and 5 AM, and deny maintenance periods between November 1 and February 15.",
       "C": "Build a Cloud Composer job to start a maintenance window on Sundays between 12 AM and 1AM, and deny maintenance periods between November 1 and January 15.",
       "D": "Create a Cloud Scheduler job to start maintenance at 12 AM on Sundays. Pause the Cloud Scheduler job between November 1 and January 15."
-    }
+    },
+    "answer": "A",
+    "reason": "Maintenance window menetapkan waktu pembaruan rutin dan deny period mengecualikan musim belanja sibuk."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 87 discussion",
@@ -875,7 +1047,9 @@
       "C": "Keep the network bandwidth at 1 Gbps, and then perform an offline data migration.",
       "D": "Increase the network bandwidth to 2 Gbps, and then perform an offline data migration.",
       "E": "Increase the network bandwidth to 10 Gbps, and then perform an offline data migration."
-    }
+    },
+    "answer": "A, E",
+    "reason": "CDC menjaga perubahan selama pemindahan; bandwidth 10 Gbps mempercepat transfer awal 100 TB dalam jendela cutover."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 88 discussion",
@@ -885,7 +1059,9 @@
       "B": "Automate instance creation by setting up Terraform scripts.",
       "C": "Create the instances using the Google Cloud Console UI.",
       "D": "Create clones from a template Cloud SQL instance."
-    }
+    },
+    "answer": "B",
+    "reason": "Terraform menjadikan konfigurasi dan standar instance dapat diulang serta konsisten untuk banyak proyek."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 89 discussion",
@@ -895,7 +1071,9 @@
       "B": "1 Create the database on a Bare Metal Solution server with the database running on flash storage. 2. Keep a local backup copy on standard storage. 3. Keep backups older than one day stored in Actifio OnVault storage.",
       "C": "1. Create the database on a Bare Metal Solution server with the database running on flash storage. 2. Keep a local backup copy on standard storage. 3. Use the Oracle Recovery Manager (RMAN) backup utility to move backups older than one day to a Coldline Storage bucket.",
       "D": "1. Create the database on a Bare Metal Solution server with the database running on flash storage. 2. Keep a local backup copy on all flash storage. 3. Use the Oracle Recovery Manager (RMAN) backup utility to move backups older than one day to an Archive Storage bucket."
-    }
+    },
+    "answer": "B",
+    "reason": "Salinan lokal standard storage mendukung restore cepat, sementara Actifio OnVault lebih hemat untuk retensi jangka panjang."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 90 discussion",
@@ -905,7 +1083,9 @@
       "B": "Assign the Cloud Spanner Database Admin role.",
       "C": "Assign the Cloud Spanner Database User role.",
       "D": "Assign the Cloud Spanner Admin role."
-    }
+    },
+    "answer": "C",
+    "reason": "Database User memberi tim akses data yang diperlukan tanpa memberikan hak untuk menghapus database."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 91 discussion",
@@ -915,7 +1095,9 @@
       "B": "Use VPC Service Controls to create a trusted network for the Bigtable service.",
       "C": "Use customer-managed encryption keys (CMEK).",
       "D": "Use Google Cloud Armor to add IP addresses to an allowlist."
-    }
+    },
+    "answer": "B",
+    "reason": "VPC Service Controls membatasi akses Bigtable ke perimeter tepercaya sehingga kredensial valid saja tidak cukup untuk mengakses data dari luar."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 92 discussion",
@@ -925,7 +1107,9 @@
       "B": "BigQuery",
       "C": "Cloud Spanner",
       "D": "Bigtable"
-    }
+    },
+    "answer": "B",
+    "reason": "BigQuery dirancang untuk kueri analitik relasional berskala sangat besar, termasuk ratusan terabyte."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 93 discussion",
@@ -935,7 +1119,9 @@
       "B": "Use staleness of at least 15 seconds.",
       "C": "Add more read-write replicas.",
       "D": "Keep the total CPU utilization under 45% in each region."
-    }
+    },
+    "answer": "A",
+    "reason": "Leader region menjadi lokasi commit untuk multi-region Spanner; mendekatkan workload tulis mengurangi latensi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 94 discussion",
@@ -945,7 +1131,9 @@
       "B": "Migrate the Oracle databases to Bare Metal Solution for Oracle, and use Actifio to store backup files on Cloud Storage using the Nearline Storage class.",
       "C": "Migrate the Oracle databases to Bare Metal Solution for Oracle, and back up the Oracle databases to Cloud Storage using the Standard Storage class.",
       "D": "Migrate the Oracle databases to Compute Engine, and store backups on tapes on-premises."
-    }
+    },
+    "answer": "B",
+    "reason": "Actifio menyimpan backup jangka panjang di Cloud Storage Nearline dengan biaya lebih rendah daripada penyimpanan cepat."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 95 discussion",
@@ -955,7 +1143,9 @@
       "B": "Set up different organizations for each database type, and apply policy constraints at the organization level.",
       "C": "Set up Pub/Sub to ingest data from Cloud Logging, send an alert every time a new database instance is created, and manually validate the region.",
       "D": "Set up different projects for PostgreSQL and MySQL databases, and apply organizational policy constraints at a project level."
-    }
+    },
+    "answer": "D",
+    "reason": "Pemisahan proyek memungkinkan kebijakan organisasi yang berbeda untuk backup PostgreSQL dan residency MySQL."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 96 discussion",
@@ -965,7 +1155,9 @@
       "B": "Delete DB-1, and re-create DB-1 as a read replica in the same region as DB-1.",
       "C": "Delete DB-2 so that DB-1 automatically reverts to the primary instance.",
       "D": "Create DB-4 as a read replica in the same region as DB-1, and promote DB-4 to primary."
-    }
+    },
+    "answer": "B",
+    "reason": "Setelah DB-2 dipromosikan, DB-1 lama perlu dibuat ulang sebagai read replica agar topologi replikasi kembali konsisten."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 97 discussion",
@@ -975,7 +1167,9 @@
       "B": "Use Firestore.",
       "C": "Use Cloud SQL for MySQL",
       "D": "Use Cloud Spanner."
-    }
+    },
+    "answer": "D",
+    "reason": "Spanner menyediakan transaksi global dengan konsistensi kuat dan skalabilitas horizontal."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 98 discussion",
@@ -985,7 +1179,9 @@
       "B": "White a Logs Explorer query to identify database queries with high execution times.",
       "C": "Review application logs to identify database calls.",
       "D": "Use the Query Insights dashboard to identify high execution times."
-    }
+    },
+    "answer": "D",
+    "reason": "Query Insights membantu menemukan kueri mahal dan tren latensi yang menjelaskan penurunan performa."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 99 discussion",
@@ -995,7 +1191,9 @@
       "B": "Create one regional Cloud SQL instance in one zone with a standby instance in another zone in the same region.",
       "C": "Create two read-write Cloud SQL instances in two different zones with a standby instance in another region.",
       "D": "Create two read-write Cloud SQL instances in two different regions with a standby instance in another zone."
-    }
+    },
+    "answer": "A",
+    "reason": "Regional Cloud SQL menyediakan standby lintas zona untuk automatic failover; read replica lintas region menambah opsi DR."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 100 discussion",
@@ -1005,7 +1203,9 @@
       "B": "Create a new Cloud SQL for MySQL instance, enable HA, and use Cloud Data Fusion to migrate your data.",
       "C": "Use the gcloud instances patch command to update your existing Cloud SQL for MySQL instance.",
       "D": "Shut down your existing Cloud SQL for MySQL instance, and enable HA."
-    }
+    },
+    "answer": "C",
+    "reason": "Perintah patch Cloud SQL dapat mengaktifkan HA pada instance yang sudah ada tanpa membuat ulang database."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 101 discussion",
@@ -1015,7 +1215,9 @@
       "B": "Use the default configuration for the automated backups location.",
       "C": "Disable automated backups, and create an on-demand backup routine to a regional Cloud Storage bucket.",
       "D": "Disable automated backups, and configure serverless exports to a regional Cloud Storage bucket."
-    }
+    },
+    "answer": "A",
+    "reason": "Lokasi backup regional memenuhi persyaratan residency tanpa membangun proses salinan dan pemeliharaan tambahan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 102 discussion",
@@ -1025,7 +1227,9 @@
       "B": "Use Error Reporting to monitor CPU and memory metrics and to configure SMS notification channels.",
       "C": "Use Cloud Logging to set up a log sink for CPU and memory metrics and to configure a sink destination to send a message to Pub/Sub.",
       "D": "Use Cloud Monitoring to set up an alerting policy for CPU and memory metrics and to configure SMS notification channels."
-    }
+    },
+    "answer": "D",
+    "reason": "Cloud Monitoring mengumpulkan metrik CPU dan memori dan mengirim notifikasi saat ambang batas terlampaui."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 103 discussion",
@@ -1035,7 +1239,9 @@
       "B": "Create a streaming Datatlow job to export the table.",
       "C": "Set up Cloud Composer, and create a task to export the table daily.",
       "D": "Run the cron job on a Compute Engine instance to continue the export."
-    }
+    },
+    "answer": "A",
+    "reason": "Cloud Scheduler dan Cloud Functions menggantikan cron job lokal dengan proses ekspor harian terkelola."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 104 discussion",
@@ -1045,7 +1251,9 @@
       "B": "1. Build a Cloud Data Fusion pipeline for each table to migrate data from the on-premises MySQL database to Cloud SQL for MySQL. 2. Schedule downtime to run each Cloud Data Fusion pipeline. 3. Verify that the migration was successful. 4. Re-point the applications to the Cloud SQL for MySQL instance.",
       "C": "1. Pause the on-premises applications. 2. Use the mysqldump utility to dump the database content in compressed format. 3. Run gsutil –m to move the dump file to Cloud Storage. 4. Use the Cloud SQL for MySQL import option. 5. After the import operation is complete, re-point the applications to the Cloud SQL for MySQL instance.",
       "D": "1 Pause the on-premises applications. 2. Use the mysqldump utility to dump the database content in CSV format. 3. Run gsutil –m to move the dump file to Cloud Storage. 4. Use the Cloud SQL for MySQL import option. 5. After the import operation is complete, re-point the applications to the Cloud SQL for MySQL instance."
-    }
+    },
+    "answer": "A",
+    "reason": "Migrasi DMS berkelanjutan mereplikasi perubahan sampai cutover, sehingga waktu henti aplikasi dapat diminimalkan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 105 discussion",
@@ -1055,7 +1263,9 @@
       "B": "Use Cloud Spanner for data storage.",
       "C": "Use Memorystore for data storage.",
       "D": "Use Bigtable for data storage."
-    }
+    },
+    "answer": "B",
+    "reason": "Spanner menyediakan penyimpanan durable dan skala elastis untuk shopping cart dengan beban global."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 106 discussion",
@@ -1065,7 +1275,9 @@
       "B": "Remove inactive user accounts.",
       "C": "Run the Recommender API to identify overprovisioned instances.",
       "D": "Build indexes on heavily accessed tables."
-    }
+    },
+    "answer": "C",
+    "reason": "Recommender API mengidentifikasi instance Cloud SQL yang kelebihan kapasitas agar ukuran mesin dapat dioptimalkan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 107 discussion",
@@ -1075,7 +1287,9 @@
       "B": "In the Google Cloud Console, increase the size of the persistent disk, and use the fdisk command to verify that the new space is ready to use",
       "C": "In the Google Cloud Console, create a snapshot of the persistent disk, restore the snapshot to a new larger disk, unmount the old disk, mount the new disk, and restart the database service.",
       "D": "In the Google Cloud Console, create a new persistent disk attached to the VM, and configure the database service to move the files to the new disk."
-    }
+    },
+    "answer": "A",
+    "reason": "Memperbesar persistent disk lalu menjalankan resize2fs memperluas partisi ext4 tanpa memindahkan database."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 108 discussion",
@@ -1085,7 +1299,9 @@
       "B": "Create a read replica on Cloud SQL, and then promote it to a read/write standalone instance.",
       "C": "Use Database Migration Service to migrate your database.",
       "D": "Create a hot standby on Compute Engine, and use PgBouncer to switch over the connections."
-    }
+    },
+    "answer": "D",
+    "reason": "Hot standby menjaga database PostgreSQL tujuan tetap tersinkron; PgBouncer membantu mengalihkan koneksi saat cutover."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 109 discussion",
@@ -1095,7 +1311,9 @@
       "B": "Use the default app profile with multi-cluster routing.",
       "C": "Create a custom app profile with multi-cluster routing.",
       "D": "Create a custom app profile with single-cluster routing."
-    }
+    },
+    "answer": "C",
+    "reason": "Multi-cluster routing mengarahkan permintaan ke cluster Bigtable yang tersedia saat cluster lain mengalami gangguan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 110 discussion",
@@ -1105,7 +1323,9 @@
       "B": "Use Cloud SQL Auth proxy.",
       "C": "Connect to Cloud SQL using a connection that has SSL encryption.",
       "D": "Use customer-managed encryption keys with Cloud SQL."
-    }
+    },
+    "answer": "D",
+    "reason": "CMEK mengenkripsi data tersimpan dengan kunci yang dikelola organisasi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 111 discussion",
@@ -1115,7 +1335,9 @@
       "B": "Use Bigtable",
       "C": "Use BigQuery.",
       "D": "Use Cloud Spanner."
-    }
+    },
+    "answer": "B",
+    "reason": "Bigtable menyimpan time series dalam skala besar dan menyediakan pemindaian berlatensi rendah."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 112 discussion",
@@ -1125,7 +1347,9 @@
       "B": "Use Bigtable with clusters in multiple regions to deploy the database",
       "C": "Use BigQuery to deploy the database",
       "D": "Use Cloud SQL with a regional read replica to deploy the database."
-    }
+    },
+    "answer": "A",
+    "reason": "Spanner mendukung transaksi relasional dengan ketersediaan multi-region untuk peluncuran global."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 113 discussion",
@@ -1135,7 +1359,9 @@
       "B": "Use high availability (HA) Cloud SQL with multiple zones.",
       "C": "Use zonal Cloud SQL without high availability (HA).",
       "D": "Use Cloud Spanner in a regional configuration."
-    }
+    },
+    "answer": "C",
+    "reason": "Instance zonal menghindari replikasi sinkron lintas zona sehingga cocok bila prioritas utamanya adalah latensi tulis minimum."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 114 discussion",
@@ -1145,7 +1371,9 @@
       "B": "Migrate to Bare Metal Solution for Oracle.",
       "C": "Migrate to Google Kubernetes Engine (GKE)",
       "D": "Migrate to Google Cloud VMware Engine"
-    }
+    },
+    "answer": "B",
+    "reason": "Bare Metal Solution mempertahankan kebutuhan Oracle RAC, shared storage, dan koneksi berperforma tinggi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 115 discussion",
@@ -1155,7 +1383,9 @@
       "B": "Migrate the existing database to Cloud SQL for PostgreSQL.",
       "C": "Migrate the existing database to Cloud Spanner.",
       "D": "Migrate the existing database to PostgreSQL running on Compute Engine."
-    }
+    },
+    "answer": "B",
+    "reason": "Cloud SQL for PostgreSQL mengurangi beban administrasi untuk aplikasi relasional dengan trafik ringan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 116 discussion",
@@ -1165,7 +1395,9 @@
       "B": "Ask existing users to set their Google password to match their corporate password.",
       "C": "Migrate the application to Google Cloud, and use Identity and Access Management (IAM).",
       "D": "Use Google Workspace Password Sync to replicate passwords into Google Cloud."
-    }
+    },
+    "answer": "A",
+    "reason": "Workload Identity Federation memberi aplikasi eksternal identitas sementara untuk meniru service account tanpa kunci statis."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 117 discussion",
@@ -1175,7 +1407,9 @@
       "B": "Disable both the external IP address and the internal IP address, and instead rely on Private Google Access.",
       "C": "Specify an authorized network with the CIDR range of the VM.",
       "D": "Disable and remove the external IP address assignment."
-    }
+    },
+    "answer": "D",
+    "reason": "Menghapus external IP dan memakai private IP membatasi koneksi database hanya lewat jaringan internal."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 118 discussion",
@@ -1185,7 +1419,9 @@
       "B": "Create two separate databases in the instance, and perform dual writes from the Order Management application.",
       "C": "Use a Cloud SQL federated query for the Sales Reporting application.",
       "D": "Queue up all the requested reports in PubSub, and execute the reports at night."
-    }
+    },
+    "answer": "A",
+    "reason": "Read replica mengisolasi query laporan dari transaksi tulis aplikasi utama."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 119 discussion",
@@ -1195,7 +1431,9 @@
       "B": "Determine whether the database patches of Cloud SQI for PostgreSQL in regions R1 and R2 are different.",
       "C": "Determine whether the failover of Cloud SQL for PostgreSQL from region R1 to region R2 is in progress or has completed successfully.",
       "D": "Determine whether Cloud SQL for PostgreSQL in region R2 is a near-real-time copy of region R1 but not an exact copy."
-    }
+    },
+    "answer": "B",
+    "reason": "Menyamakan patch database lintas region mencegah perbedaan versi menghambat replikasi atau failover."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 120 discussion",
@@ -1205,7 +1443,9 @@
       "B": "Create a database on Google Cloud, and use database links to perform the migration.",
       "C": "Create a database on Google Cloud, and use Dataflow for database migration.",
       "D": "Use Database Migration Service."
-    }
+    },
+    "answer": "D",
+    "reason": "DMS mendukung migrasi berkelanjutan berbasis CDC ke Google Cloud tanpa perubahan kode aplikasi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 121 discussion",
@@ -1215,7 +1455,9 @@
       "B": "Restore the Cloud SQL instance from the automatic backups in another zone in region 1.",
       "C": "Check \"Lag Bytes\" in the monitoring dashboard for the primary instance in the read replica instance. Check the replication status using pg_catalog.pg_last_wal_receive_lsn(). Then, fail over to region 2 by promoting the read replica instance.",
       "D": "Check your instance operational log for the automatic failover status. Look for time, type, and status of the operations. If the failover operation is successful, no action is necessary. Otherwise, manually perform gcloud sql instances failover ."
-    }
+    },
+    "answer": "C",
+    "reason": "Metrik lag dan status replikasi menunjukkan seberapa mutakhir replika sebelum dipromosikan setelah kegagalan region."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 122 discussion",
@@ -1225,7 +1467,9 @@
       "B": "Create a new client certificate, and download it.",
       "C": "Create a new server certificate, and download it.",
       "D": "Reset your SSL configuration, and download your server certificate."
-    }
+    },
+    "answer": "C",
+    "reason": "Membuat dan mengunduh sertifikat server baru memperbarui sertifikat klien tanpa memulai ulang instance."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 123 discussion",
@@ -1235,7 +1479,9 @@
       "B": "Migrate the databases to Cloud SQL, and enable a standby database.",
       "C": "Migrate the databases to Compute Engine using regional persistent disks.",
       "D": "Migrate the databases to Bare Metal Solution for Oracle."
-    }
+    },
+    "answer": "D",
+    "reason": "Bare Metal Solution for Oracle mendukung RAC dan Data Guard, sehingga meminimalkan perubahan pada sistem Oracle lama."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 124 discussion",
@@ -1245,7 +1491,9 @@
       "B": "Select Cloud SQL.",
       "C": "Select Bigtable.",
       "D": "Select Cloud Spanner."
-    }
+    },
+    "answer": "D",
+    "reason": "Spanner menyediakan sharding otomatis, konsistensi transaksional kuat, dan ketersediaan tinggi untuk beban global."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 125 discussion",
@@ -1255,7 +1503,9 @@
       "B": "Use Managed Active Directory authentication.",
       "C": "Use Cloud SQL federated queries.",
       "D": "Use PostgreSQL database's built-in authentication."
-    }
+    },
+    "answer": "A",
+    "reason": "IAM database authentication memberi pengguna akses ke Cloud SQL tanpa menyimpan password database."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 126 discussion",
@@ -1265,7 +1515,9 @@
       "B": "1. Take a full export while the database is offline. 2. Create a bucket in Cloud Storage. 3. Transfer the dump file to the bucket you just created. 4. Restore the backup into the Google Cloud primary server.",
       "C": "1. Take a full backup while the database is online. 2. Create a bucket in Cloud Storage. 3. Transfer the backup to the bucket you just created. 4. Restore the backup into the Google Cloud primary server. 5. Create a recovery.conf file in the $PG_DATA directory. 6. Stop the source database. 7. Transfer the write ahead logs to the bucket you created before. 8. Start the PostgreSQL service. 9. Wait until Google Cloud primary server syncs with the running primary server.",
       "D": "1. Take a full export while the database is online. 2. Create a bucket in Cloud Storage. 3. Transfer the dump file and write-ahead logs to the bucket you just created. 4. Restore the dump file into the Google Cloud primary server. 5. Create a recovery.conf file in the $PG_DATA directory. 6. Stop the source database. 7. Transfer the write-ahead logs to the bucket you created before. 8. Start the PostgreSQL service. 9. Wait until the Google Cloud primary server syncs with the running primary server."
-    }
+    },
+    "answer": "C",
+    "reason": "Backup penuh yang dibuat saat database aktif dan dipindahkan melalui Cloud Storage dapat dipulihkan pada VM tujuan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 127 discussion",
@@ -1275,7 +1527,9 @@
       "B": "Use the Cloud Monitoring dashboard with available metrics from Cloud SQL.",
       "C": "Use Cloud SQL logs.",
       "D": "Use the SQL Server Always On Availability Group dashboard."
-    }
+    },
+    "answer": "B",
+    "reason": "Cloud Monitoring menyediakan metrik Cloud SQL seperti replication lag untuk memantau RPO replika."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 128 discussion",
@@ -1285,7 +1539,9 @@
       "B": "Build a change data capture (CDC) pipeline to read transactions from the primary instance, and replicate them to a secondary instance.",
       "C": "Create a read replica in another region, and promote the read replica if a failure occurs.",
       "D": "Enable high availability (HA) for the database to make it regional."
-    }
+    },
+    "answer": "D",
+    "reason": "HA regional menggunakan replikasi sinkron antarzona untuk mempertahankan transaksi saat satu zona gagal."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 129 discussion",
@@ -1295,7 +1551,9 @@
       "B": "Create a Shared VPC that both the application VMs and Cloud SQL instances will use.",
       "C": "Use the default networks, and leverage Cloud VPN to connect the two together.",
       "D": "Place both the application VMs and the Cloud SQL instances in the default network of each project."
-    }
+    },
+    "answer": "B",
+    "reason": "Shared VPC memungkinkan VM dan Cloud SQL dalam proyek berbeda memakai jaringan bersama yang sama."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 130 discussion",
@@ -1305,7 +1563,9 @@
       "B": "Rerun terraform apply.",
       "C": "Create a read replica.",
       "D": "Use point-in-time-recovery (PITR) to recover the database."
-    }
+    },
+    "answer": "A",
+    "reason": "Terraform deletion protection mencegah database persisten terhapus saat resource aplikasi dihancurkan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 131 discussion",
@@ -1315,7 +1575,9 @@
       "B": "roles/spanner.databaseUser",
       "C": "roles/spanner.viewer",
       "D": "roles/spanner.backupWriter"
-    }
+    },
+    "answer": "A",
+    "reason": "Database Reader membatasi pengguna baru pada operasi baca saja."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 133 discussion",
@@ -1325,7 +1587,9 @@
       "B": "Use Cloud Data Fusion and scheduled workflows to extract data from MySQL. Transform this data into the appropriate schema, and load this data into your BigQuery database.",
       "C": "Use Database Migration Service to replicate data to a Cloud SQL for MySQL instance. Create federated tables in BigQuery on top of the replicated instances to transform and load the data into your BigQuery database.",
       "D": "Create extracts from your on-premises databases periodically, and push these extracts to Cloud Storage. Upload the changes into BigQuery, and merge them with existing tables."
-    }
+    },
+    "answer": "A",
+    "reason": "Datastream CDC ke Cloud Storage lalu Dataflow ke BigQuery menyediakan alur replikasi terkelola dengan latensi rendah."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 134 discussion",
@@ -1335,7 +1599,9 @@
       "B": "Use BigQuery, and load data in batches.",
       "C": "Deploy the database using Bigtable.",
       "D": "Deploy the database using Cloud Spanner."
-    }
+    },
+    "answer": "C",
+    "reason": "Bigtable mampu menyerap jutaan pembacaan dan penulisan sensor per detik dengan skala horizontal."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 135 discussion",
@@ -1345,7 +1611,9 @@
       "B": "Use Dataflow to create a custom pipeline to extract data from Firestore, transform it into the desired format, and load it into a Cloud Storage bucket at regular intervals.",
       "C": "Use Cloud Scheduler to trigger a Cloud Function that executes the Firestore export process.",
       "D": "Use the Firebase Admin SDK to programmatically schedule and manage exports."
-    }
+    },
+    "answer": "C",
+    "reason": "Cloud Scheduler memicu Cloud Function secara berkala untuk menjalankan ekspor Firestore."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 136 discussion",
@@ -1355,7 +1623,9 @@
       "B": "Implement Bigtable with replication across multiple regions and configure to prioritize data accuracy.",
       "C": "Create a Cloud SQL instance in HA mode with a cross-region read replica.",
       "D": "Create an AlloyDB instance in HA mode with a cross-region read replica."
-    }
+    },
+    "answer": "A",
+    "reason": "Spanner multi-region menyediakan konsistensi kuat, ketersediaan tinggi, dan skala untuk aplikasi global."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 137 discussion",
@@ -1365,7 +1635,9 @@
       "B": "Change the instance sizes of the read nodes in the read pool.",
       "C": "Begin with minimal read pools and iteratively expand or shrink them based on real-time load monitoring to optimize resource allocation.",
       "D": "Assign all reporting queries to a single, large read pool to maximize the combined compute resources available for analytics."
-    }
+    },
+    "answer": "C",
+    "reason": "Read pool AlloyDB dapat ditambah atau dikurangi berdasarkan pemantauan beban agar analitik elastis tanpa mengalokasikan kapasitas berlebih."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 138 discussion",
@@ -1375,7 +1647,9 @@
       "B": "Create a Cloud SQL for MySQL instance with high availability (HA) disabled. Create a read replica in the same zone.",
       "C": "Create a Cloud SQL for MySQL instance with high availability (HA) disabled. Create a read replica in a second region.",
       "D": "Create a Cloud SQL for MySQL instance with high availability (HA) disabled. Configure automated backups of the Cloud SQL instance, and use a custom backup location to store backups in a Cloud Storage bucket in the same region."
-    }
+    },
+    "answer": "D",
+    "reason": "Aplikasi nonkritis yang hanya menerima pembaruan malam dapat memakai instance zonal, backup otomatis, dan impor terjadwal untuk menekan biaya."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 139 discussion",
@@ -1386,7 +1660,9 @@
       "C": "Use an external IP address for the Cloud SQL instance, and configure firewall rules.",
       "D": "Set up Identity and Access Management (IAM) roles to restrict access with Cloud SQL with an internal IP address.",
       "E": "Leverage Storage Transfer Service with client-side encryption."
-    }
+    },
+    "answer": "B, D",
+    "reason": "Private Service Connect menjaga koneksi on-premises ke Cloud SQL tetap privat; IAM membatasi siapa yang dapat mengakses database."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 140 discussion",
@@ -1396,7 +1672,9 @@
       "B": "Change the transaction logs (WAL) retention period.",
       "C": "Upgrade to Enterprise Plus Edition.",
       "D": "Disable PITR, then enable PITR."
-    }
+    },
+    "answer": "C",
+    "reason": "AlloyDB Enterprise Plus menyimpan log PITR di Cloud Storage, bukan memenuhi kebutuhan penyimpanan log pada disk lokal."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 141 discussion",
@@ -1406,7 +1684,9 @@
       "B": "Migrate to AlloyDB for PostgreSQL by using Database Migration Service.",
       "C": "Deploy Kubernetes-based AlloyDB Omni database cluster on-premises. Enable HA by using the AlloyDB Omni Kubernetes operator, and migrate your Oracle database to Omni.",
       "D": "Deploy AlloyDB Omni as a docker-based container in your on-premises VM, enable HA for it, and migrate your Oracle database to the Omni container."
-    }
+    },
+    "answer": "C",
+    "reason": "AlloyDB Omni di Kubernetes dapat tetap on-premises untuk residency dan menyediakan HA melalui operator."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 142 discussion",
@@ -1416,7 +1696,9 @@
       "B": "Add a new cluster to the existing instance, and enable multi-cluster routing in the app profile.",
       "C": "Add a new cluster to the existing instance, and isolate the workloads with two app profiles.",
       "D": "Scale up the Bigtable instance by enabling Autoscaling."
-    }
+    },
+    "answer": "C",
+    "reason": "Cluster Bigtable tambahan dan app profile terpisah mengisolasi pembacaan batch dari trafik aplikasi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 143 discussion",
@@ -1426,7 +1708,9 @@
       "B": "Grant the alloydb.client IAM role to each user.",
       "C": "Grant the alloydb.viewer IAM role to each user.",
       "D": "Grant the alloydb.alloydbreplica IAM role to each user."
-    }
+    },
+    "answer": "A",
+    "reason": "Setelah IAM authentication aktif, akun database tetap memerlukan grant SQL agar dapat membaca tabel yang dituju."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 144 discussion",
@@ -1436,7 +1720,9 @@
       "B": "Redeploy your application to the same zone as the Memorystore instance.",
       "C": "Scale the Memorystore instance to a larger memory size.",
       "D": "Enable read replicas. Deploy additional read replica instances to distribute read workloads."
-    }
+    },
+    "answer": "C",
+    "reason": "Menambah kapasitas memori Memorystore memberi ruang bagi working set dan mengurangi tekanan memori yang dapat memicu latensi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 145 discussion",
@@ -1446,7 +1732,9 @@
       "B": "Use the GENERATE_UUID() function to generate universally unique identifier (UUID) values with the STRING(36) data type when you do the migration.",
       "C": "During the migration, swap the order of keys so that the column that contains the monotonically increasing or decreasing value is the first key par.",
       "D": "Migrate the tables with no primary key to maintain consistency with source."
-    }
+    },
+    "answer": "B",
+    "reason": "UUID acak menghindari key berurutan yang dapat membuat hotspot saat tabel Spanner dimigrasikan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 146 discussion",
@@ -1456,7 +1744,9 @@
       "B": "Check for missing roles and privileges in the cloned Cloud SQL instance. Grant missing privileges to the developers.",
       "C": "Clone the current production database, and restore it to an earlier point-in-time (PITR). Provide access to the cloned instance to the developers.",
       "D": "Dump the production database to a file. Modify the dumped file to ALTER TABLE to SET LOGGED on tables that were unlogged in production. Reload the data in the new Cloud SQL for PostgreSQL instance."
-    }
+    },
+    "answer": "D",
+    "reason": "Mengubah tabel menjadi logged sebelum ekspor memastikan data tabel ikut disimpan dan tersedia pada instance clone."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 147 discussion",
@@ -1466,7 +1756,9 @@
       "B": "Implement a multi-cluster Bigtable instance with autoscaling enabled and optimal schema design.",
       "C": "Implement a multi-cluster Bigtable instance across multiple regions with replication.",
       "D": "Implement AlloyDB for PostgreSQL to handle the analytical workload using read replica."
-    }
+    },
+    "answer": "B",
+    "reason": "Bigtable multi-cluster dan autoscaling menangani lonjakan trafik serta pertumbuhan data time series."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 148 discussion",
@@ -1476,7 +1768,9 @@
       "B": "Connect by using the private IP address of the AlloyDB cluster directly from the application.",
       "C": "Connect by using AlloyDB Auth Proxy installed in the GKE cluster.",
       "D": "Install a SOCKS proxy in a VM in the db-dev VPC. Install AlloyDB Auth Proxy in your GKE cluster, and connect to the AlloyDB cluster through the SOCKS server and port."
-    }
+    },
+    "answer": "D",
+    "reason": "PSA pada db-dev tidak menyediakan jalur transitif dari app-dev; SOCKS proxy di VPC database memberi jalur jaringan, sementara Auth Proxy menangani koneksi terautentikasi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 149 discussion",
@@ -1486,7 +1780,9 @@
       "B": "Upgrade the Amazon RDS for MySQL primary instance to an instance with more vCPUs and memory, and then run Google Cloud's Database Migration Service.",
       "C": "Create a single Database Migration Service migration job with initial load parallelism configured to maximum on the source Amazon RDS for MySQL read replica.",
       "D": "Create a single Database Migration Service migration job with initial Load Parallelism configured to Maximum on the Amazon RDS for MySQL primary instance."
-    }
+    },
+    "answer": "C",
+    "reason": "Memaksimalkan paralelisme initial load mempercepat salinan awal; DMS kemudian menerapkan perubahan agar cutover lebih singkat."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 150 discussion",
@@ -1496,7 +1792,9 @@
       "B": "Enable HA on the current read replica.",
       "C": "Create a new HA instance in the same zone as the primary.",
       "D": "Create a new HA instance in a different region than the primary."
-    }
+    },
+    "answer": "B",
+    "reason": "Mengaktifkan HA pada read replica menambah standby lintas zona untuk workload analitik tanpa membuat replika baru."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 151 discussion",
@@ -1506,7 +1804,9 @@
       "B": "Use Ora2pg for schema and code conversion. Use the oracle_fdw extension in AlloyDB and replicate data from source to destination by using CREATE TABLE AS SELECT statements.",
       "C": "Use Database Migration Service. Set up a conversion workspace for schema and code conversion. Create a migration job to perform backfill and change data capture to replicate data from source to destination.",
       "D": "Use Database Migration Service. Set up a legacy conversion workspace for schema and code conversion. Create a migration job to perform backfill and change data capture to replicate data from source to destination."
-    }
+    },
+    "answer": "C",
+    "reason": "DMS conversion workspace mengonversi skema dan kode, kemudian migration job memindahkan data ke AlloyDB."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 152 discussion",
@@ -1516,7 +1816,9 @@
       "B": "1. Store the credentials to the database in Secret Manager. 2. Modify the application to retrieve the credentials from Secret Manager on startup. 3. Configure the rotation interval to 60 days.",
       "C": "1. Store the credentials in a text file in a Cloud Storage bucket. 2. Modify the application to download the text file and retrieve the credentials on startup. 3. Update the text file every 60 days.",
       "D": "1. Configure IAM database authentication for the application to connect to the database. 2. Create an IAM user and map it to a separate database user for each application user. 3. Require users to update their passwords every 60 days."
-    }
+    },
+    "answer": "B",
+    "reason": "Secret Manager menyimpan password terpusat dan memungkinkan aplikasi mengambil versi terbaru saat dijalankan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 153 discussion",
@@ -1526,7 +1828,9 @@
       "B": "Create a cross-region read replica, version 8.0.37, in the us-west1 region. Designate it as the failover DR replica, and test switchover by using the gcloud switchover command.",
       "C": "Create a cross-region read replica version 8.0.34, in the us-west1 region. Designate it as the failover DR replica, and test switchover by using the gcloud switchover command.",
       "D": "Create a cross-region read replica, version 8.0.34, in the us-west1 region. Test switchover by using the gcloud promote-replica with failover command."
-    }
+    },
+    "answer": "C",
+    "reason": "Read replica lintas region dengan versi sama dapat dipromosikan untuk DR dan diuji melalui switchover."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 154 discussion",
@@ -1536,7 +1840,9 @@
       "B": "Schedule hourly on-demand backups and enable point in time recovery. Delete any delete backups that were taken over five days ago.",
       "C": "Schedule a database export job to run every hour from a read replica instance. Retain the export dumps for at least five days.",
       "D": "Schedule a database export job to run every hour. Use serverless export. Retain the export dumps for at least five days."
-    }
+    },
+    "answer": "A",
+    "reason": "Backup otomatis dan PITR menyediakan pemulihan hingga titik waktu tertentu; jadwal backup saat trafik rendah mengurangi dampak."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 155 discussion",
@@ -1546,7 +1852,9 @@
       "B": "Vertically scale the primary instance by significantly increasing compute resources, such as vCPUs and memory.",
       "C": "Increase storage size on the existing instance and implement client-side caching for frequently accessed data.",
       "D": "Migrate to a Cloud SQL for PostgreSQL database for better performance during high load."
-    }
+    },
+    "answer": "A",
+    "reason": "Read replica mengurangi beban baca, sedangkan HA dan pengujian failover membantu menjaga layanan saat terjadi gangguan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 156 discussion",
@@ -1556,7 +1864,9 @@
       "B": "Schedule daily and monthly on-demand backups.",
       "C": "Schedule automated backups, and create on-demand monthly backups to custom backup locations.",
       "D": "Create an Organization Policy Service resource location constraint. Schedule automated backups with the retention period of 30 days."
-    }
+    },
+    "answer": "C",
+    "reason": "Backup otomatis dan backup bulanan on-demand di lokasi kustom memenuhi jadwal serta residency yang diminta."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 157 discussion",
@@ -1566,7 +1876,9 @@
       "B": "Evaluate the application connection pooling configuration settings.",
       "C": "Review Cloud SQL System Insights for the instance, and analyze CPU, memory, and storage utilization metrics.",
       "D": "Create two Cloud SQL instances, and split the workload between them."
-    }
+    },
+    "answer": "C",
+    "reason": "System Insights menghubungkan CPU, memori, dan storage dengan perubahan beban untuk menemukan bottleneck."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 158 discussion",
@@ -1576,7 +1888,9 @@
       "B": "Select a Cloud SQL for MySQL database with a machine configuration of 16 cores and 64 GB of RAM.",
       "C": "Select a Cloud SQL for MySQL database with a machine configuration of 32 cores and 256 GB of RAM.",
       "D": "Select a Cloud SQL for MySQL database with a machine configuration of 64 cores and 768 GB of RAM."
-    }
+    },
+    "answer": "B",
+    "reason": "Ukuran 16 core dan 64 GB menyamai kapasitas sumber yang sudah terpakai tinggi dan menghindari kekurangan resource saat migrasi."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 159 discussion",
@@ -1586,7 +1900,9 @@
       "B": "Increase the compute capacity of the Spanner instance.",
       "C": "Move the Spanner instance to a multi-regional configuration.",
       "D": "Archive and delete historical data from the database."
-    }
+    },
+    "answer": "B",
+    "reason": "Menambah compute capacity memberi Spanner ruang untuk melayani lonjakan tulis dan memperbesar kapasitas penyimpanan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 160 discussion",
@@ -1596,7 +1912,9 @@
       "B": "Deploy a single-zone Bigtable cluster and optimize the application code for maximum write throughput.",
       "C": "Deploy a single-region Bigtable instance and increase the nodes to maximize data durability.",
       "D": "Provision a multi-zone Bigtable cluster, configure replication, perform an application stress-test, and set up performance monitoring."
-    }
+    },
+    "answer": "D",
+    "reason": "Cluster Bigtable multi-zona, replikasi, uji beban, dan monitoring menangani pertumbuhan sekaligus meningkatkan ketahanan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 161 discussion",
@@ -1606,7 +1924,9 @@
       "B": "Use a schema conversion tool to automatically convert the Oracle schema to PostgreSQL schema, then manually rewrite all queries.",
       "C": "Migrate the data directly from Oracle to PostgreSQL without any conversion. Rely on application-level compatibility layers to handle any syntax or semantic differences.",
       "D": "Use Database Migration Service code conversion workspace, then review and refactor as needed."
-    }
+    },
+    "answer": "D",
+    "reason": "DMS conversion workspace membantu mengonversi skema dan objek Oracle sebelum peninjauan dan refactoring untuk PostgreSQL."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 162 discussion",
@@ -1616,7 +1936,9 @@
       "B": "Use Memorystore Standard Tier. Configure at least one read replica.",
       "C": "Schedule exports of the Memorystore instance. Specify a dual-region Cloud Storage bucket as the export destination.",
       "D": "Enable Redis RDB snapshots for Memorystore."
-    }
+    },
+    "answer": "C",
+    "reason": "Ekspor Memorystore ke bucket dual-region menyimpan salinan lintas wilayah yang dapat dipulihkan setelah outage regional."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 164 discussion",
@@ -1626,7 +1948,9 @@
       "B": "Add additional indexes to the table.",
       "C": "Disable leader-aware routing in the client library.",
       "D": "Increase the number of Spanner nodes."
-    }
+    },
+    "answer": "A",
+    "reason": "Leader-aware routing mengirim transaksi tulis ke region leader dan menghindari hop lintas region yang tidak perlu."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 165 discussion",
@@ -1636,7 +1960,9 @@
       "B": "Configure read-only transactions to improve read performance during peak periods.",
       "C": "Use interleaved tables to reduce the number of cross-node transactions.",
       "D": "Enable autoscaling in the Spanner instance, and set the maximum number of nodes to match the peak write volume."
-    }
+    },
+    "answer": "D",
+    "reason": "Autoscaler Spanner dengan batas maksimum sesuai beban puncak menambah kapasitas saat lonjakan tanpa kapasitas tetap berlebih."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 166 discussion",
@@ -1646,7 +1972,9 @@
       "B": "Increase the Cloud SQL instance read_buffer_size flag.",
       "C": "Enable and use Query Insights.",
       "D": "Create a Cloud Monitoring alert based on the database/mysql/queries metric."
-    }
+    },
+    "answer": "C",
+    "reason": "Query Insights menyoroti kueri yang lambat atau mahal agar dapat ditinjau dan dioptimalkan."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 167 discussion",
@@ -1656,7 +1984,9 @@
       "B": "Update default primary key values to max(primary_key) + 1.",
       "C": "Use a UUID function that generates UUID Version 4 values as primary keys.",
       "D": "Generate values by using BIT_REVERSED_POSITIVE sequences."
-    }
+    },
+    "answer": "D",
+    "reason": "BIT_REVERSED_POSITIVE sequence mempertahankan key numerik tetapi menyebarkan nilai untuk mencegah hotspot pada Spanner."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 168 discussion",
@@ -1666,7 +1996,9 @@
       "B": "Create and populate a column of product description embeddings on the product table and perform an approximate nearest neighbor search using the customer’s search text.",
       "C": "Use the LIKE operator to match the customer’s search text to the product description and return similar rows.",
       "D": "Create a SQL script that compares the product description and the customer’s search text by using the SOUNDEX function."
-    }
+    },
+    "answer": "B",
+    "reason": "Embedding dan approximate nearest neighbor mencari kemiripan makna pada teks bebas, tidak sekadar kecocokan kata."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 171 discussion",
@@ -1676,7 +2008,9 @@
       "B": "Use Cloud SQL for PostgreSQL.",
       "C": "Use AlloyDB for PostgreSQL.",
       "D": "Deploy a self-managed PostgreSQL database on Compute Engine."
-    }
+    },
+    "answer": "C",
+    "reason": "AlloyDB mempertahankan kompatibilitas PostgreSQL sambil mengurangi pekerjaan vacuum/tuning dan menyediakan kemampuan analitik."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 172 discussion",
@@ -1686,7 +2020,9 @@
       "B": "Use the AlloyDB Python connector. Use automated IAM authentication for connectivity.",
       "C": "Use the AlloyDB Python connector. Enforce SSL connectivity to AlloyDB by using the gcloud alloydb instance update command with the --ssl-mode=ENCRYPTED_ONLY option.",
       "D": "Use any PostgreSQL-compatible Python client. Use a service account name and credential as the username and password respectively during connection."
-    }
+    },
+    "answer": "B",
+    "reason": "AlloyDB Python Connector dengan IAM authentication menghindari kredensial username/password."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 173 discussion",
@@ -1696,7 +2032,9 @@
       "B": "Enable the Service Networking API for the host and service projects.",
       "C": "Configure Private Services Access prior to assigning a private IP to Cloud SQL.",
       "D": "Assign the private IP by using the gcloud sql instances patch command."
-    }
+    },
+    "answer": "B",
+    "reason": "Service Networking API harus aktif pada proyek yang terlibat agar Private Services Access pada Shared VPC dapat dibuat."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 173 discussion",
@@ -1706,7 +2044,9 @@
       "B": "Select a 6-node Spanner instance.",
       "C": "Select a 1-node Spanner instance.",
       "D": "Recommend a multi-region Spanner instance."
-    }
+    },
+    "answer": "B",
+    "reason": "Enam node memberi kapasitas yang diperlukan untuk throughput baca dan tulis puncak dengan biaya lebih rendah daripada multi-region."
   },
   {
     "question_no": "Exam Professional Cloud Database Engineer topic 1 question 178 discussion",
@@ -1716,6 +2056,8 @@
       "B": "Migrate to AlloyDB for PostgreSQL and upgrade the machine type of the primary instance to 32 vCPU. Create materialized views for common analytical queries.",
       "C": "Migrate to AlloyDB for PostgreSQL with a 16 vCPU primary instance and enable columnar engine for analytical workloads, using read pools for query isolation.",
       "D": "Upgrade the Cloud SQL for PostgreSQL instance to db-n1-highmem-32 and implement connection pooling with PgBouncer to handle increased load."
-    }
+    },
+    "answer": "C",
+    "reason": "AlloyDB columnar engine mempercepat query analitik, sedangkan read pool mengisolasi pelaporan dari transaksi pengguna."
   }
 ]

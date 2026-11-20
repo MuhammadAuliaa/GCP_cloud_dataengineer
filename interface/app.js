@@ -8,7 +8,7 @@ const LETTERS = "ABCDEFGH";
 const PASS_PCT = 72;
 
 let exam = null;      // { title, key, questions }
-let source = "json";
+let source = "ai";
 let store = null;     // persistent per-exam stats
 let session = null;   // running session
 let tickHandle = null;
@@ -61,25 +61,29 @@ function parseQuestion(q, i) {
   const need = multiM ? ({ two: 2, three: 3, four: 4 }[multiM[1].toLowerCase()] || +multiM[1]) : 1;
   const comments = (q.discussion || []).map(parseComment);
 
-  let answer = [];
-  if (need > 1) {
-    const tally = {};
-    comments.forEach(c => { if (c.sa.length === need) tally[c.sa] = (tally[c.sa] || 0) + 1; });
-    const top = Object.entries(tally).sort((a, b) => b[1] - a[1])[0];
-    if (top) answer = top[0].split("");
-    else {
-      const votes = Object.entries(q.vote_counts || {}).sort((a, b) => b[1] - a[1]).slice(0, need).map(e => e[0]);
-      answer = votes.filter(v => /^[A-F]$/.test(v));
-      if (answer.length !== need) answer = [];
+  let answer = typeof q.answer === "string"
+    ? q.answer.split(",").map(letter => letter.trim()).filter(Boolean)
+    : [];
+  if (!answer.length) {
+    if (need > 1) {
+      const tally = {};
+      comments.forEach(c => { if (c.sa.length === need) tally[c.sa] = (tally[c.sa] || 0) + 1; });
+      const top = Object.entries(tally).sort((a, b) => b[1] - a[1])[0];
+      if (top) answer = top[0].split("");
+      else {
+        const votes = Object.entries(q.vote_counts || {}).sort((a, b) => b[1] - a[1]).slice(0, need).map(e => e[0]);
+        answer = votes.filter(v => /^[A-F]$/.test(v));
+        if (answer.length !== need) answer = [];
+      }
+    } else {
+      const a = (q.community_answer || q.most_voted || "").trim().match(/^([A-F])\b/i);
+      if (a) answer = [a[1].toUpperCase()];
     }
-  } else {
-    const a = (q.community_answer || q.most_voted || "").trim().match(/^([A-F])\b/i);
-    if (a) answer = [a[1].toUpperCase()];
   }
   const nm = (q.question_no || "").match(/topic\s+(\d+)\s+question\s+(\d+)/i);
   return {
     id: i, no: nm ? `Topic ${nm[1]} · Q${nm[2]}` : `Q${i + 1}`,
-    stem, options, need, answer, comments, votes: q.vote_counts || {}, url: q.url,
+    stem, options, need, answer, reason: q.reason || "", comments, votes: q.vote_counts || {}, url: q.url,
     fallbackLetters: options.length ? [] : "ABCD".split(""),
   };
 }
@@ -333,7 +337,8 @@ function answerBox(q, sel) {
   const comments = q.comments.filter(c => c.text.trim()).slice(0, 12);
   return `<div class="answer-box ${graded && !ok ? "bad" : ""}">
     <b>${!graded ? "Kunci jawaban tidak tersedia" : sel.length ? (ok ? "✅ Benar" : "❌ Salah") : "⚪ Tidak dijawab"}</b>
-    ${graded ? `<div>Jawaban benar (komunitas): <b>${q.answer.join(", ")}</b>${sel.length ? ` · Jawabanmu: <b>${sel.join(", ")}</b>` : ""}</div>` : ""}
+    ${graded ? `<div>Jawaban benar: <b>${q.answer.join(", ")}</b>${sel.length ? ` · Jawabanmu: <b>${sel.join(", ")}</b>` : ""}</div>` : ""}
+    ${q.reason ? `<div class="reason"><b>Penjelasan:</b> ${esc(q.reason)}</div>` : ""}
     ${votes.length ? `<div class="votes">${votes.map(([k, v]) => `<span>${esc(k)}: ${v} suara</span>`).join("")}</div>` : ""}
   </div>
   ${showDisc && comments.length ? `<div class="comments"><b>Diskusi komunitas</b>
