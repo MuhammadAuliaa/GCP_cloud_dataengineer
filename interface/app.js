@@ -12,6 +12,7 @@ let source = "ai";
 let store = null;     // persistent per-exam stats
 let session = null;   // running session
 let tickHandle = null;
+let questionDirection = 0;
 
 /* ---------- helpers ---------- */
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -239,6 +240,9 @@ const reveal = q => session.finished || (session.mode === "practice" && session.
 
 function renderSession() {
   const q = qById(session.list[session.idx]);
+  const slideClass = questionDirection > 0 ? "slide-in-next" : questionDirection < 0 ? "slide-in-prev" : "";
+  const slideArrow = questionDirection ? `<span class="slide-cue" aria-hidden="true">${questionDirection > 0 ? "→" : "←"}</span>` : "";
+  questionDirection = 0;
   const sel = session.answers[q.id] || [];
   const showAns = reveal(q);
   const total = session.list.length;
@@ -268,10 +272,10 @@ function renderSession() {
   $app.innerHTML = `
   <div class="exam">
     <div>
-      <div class="card">
+      <div class="card question-card ${slideClass}">
         <div class="q-head">
           <div><span class="q-no">Soal ${session.idx + 1} / ${total}</span><span class="badge">${esc(q.no)}</span>
-            ${q.need > 1 ? `<span class="badge warn">Pilih ${q.need}</span>` : ""}</div>
+            ${q.need > 1 ? `<span class="badge warn">Pilih ${q.need}</span>` : ""}${slideArrow}</div>
           <button class="btn ${flagged ? "active" : ""}" id="flag">⚑ ${flagged ? "Ditandai" : "Tandai"}</button>
         </div>
         <div class="q-text">${esc(q.stem)}</div>
@@ -369,6 +373,7 @@ function recordStat(q) {
 
 function go(i) {
   if (i < 0 || i >= session.list.length) return;
+  questionDirection = i > session.idx ? 1 : -1;
   session.idx = i; saveSession(); renderSession(); window.scrollTo({ top: 0 });
 }
 
