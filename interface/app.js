@@ -54,8 +54,9 @@ function parseComment(raw) {
 }
 
 function parseQuestion(q, i) {
-  const parsed = q.choices
-    ? { stem: q.question || "", options: Object.entries(q.choices).map(([k, t]) => ({ k, t })) }
+  const choices = q.choices || q.options;
+  const parsed = choices
+    ? { stem: q.question || "", options: Object.entries(choices).map(([k, t]) => ({ k, t })) }
     : splitOptions(q.question || "");
   const { stem, options } = parsed;
   const multiM = stem.match(/\b(?:choose|select)\s+(two|three|four|2|3|4)\b/i);
